@@ -1,0 +1,28 @@
+body.dragging, body.dragging * {
+  cursor: move !important;
+}
+
+.dragged {
+  position: absolute;
+  opacity: 0.5;
+  z-index: 2000;
+}
+
+tbody#the-list .placeholder {
+  position: relative;
+}
+.ui-sortable-handle{
+	cursor:move;
+}
+.post-field-alert{
+    border-radius: 8px;
+    padding: 5px 15px;
+    background: #efeea0;
+    color: #333;
+}
+.post-field-alert > p{
+    margin-bottom: 10px;
+}
+.post-field-alert > p:last-child{
+    margin-bottom: none;
+}
