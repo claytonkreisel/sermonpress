@@ -58,6 +58,16 @@ $SPAutoEmbed_stubs = array(
     'iframe-player' => 'https://www.youtube.com/embed/$2?rel=0&fs=1&showinfo=0',
   ),
   array(
+    'title' => 'YouTube',
+	'website' => 'http://www.youtube.com',
+	'url-match' => 'https?://youtu\.be/([a-zA-Z0-9]+)',
+	'embed-src' => 'http://www.youtube.com/v/$2&rel=0&fs=1&hd=1',
+	'embed-width' => '480',
+	'embed-height' => '270',
+	'image-src' => 'http://img.youtube.com/vi/$2/0.jpg',
+	'iframe-player' => 'https://www.youtube.com/embed/$2?autoplay=1',
+  ),
+  array(
     'title' => 'YouTube Alt (Secured)',
     'code' => 'yt',
     'website' => 'https://www.youtube.com',

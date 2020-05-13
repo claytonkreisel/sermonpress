@@ -1,15 +1,16 @@
-=== SermonPress ===
+## SermonPress
+
 Contributors: claytonkreisel
 Tags: sermons, topics, church, preacher, God, Jesus, Christian, series, preaching, bible, teaching
 Requires at least: 4.9.0
-Tested up to: 5.4
-Stable tag: 1.3
+Tested up to: 5.4.1
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 This is a fully customizable sermon library plugin. It comes complete with the ability to add audio and video sermons.
 
-== Description ==
+### Description
 
 This is a fully customizable sermon library plugin. It comes complete with the ability to add audio and video sermons. You can sort the sermons by speaker, topic, book, series and year given right out of the box. Sermon library looks great and works with most well-coded themes, but it also gives your developers complete control with customizable views which can be incorporated into your theme (much like WooCommerce does) as well as a complete list of action and filter hooks. Add-Ons can be custom made or purchased for additional features.
 
@@ -65,6 +66,9 @@ Manually
 1. Backend Sermons Edit and Add Page
 
 == Changelog ==
+
+= 1.3 =
+* Fixed AutoEmbed bug with youtu.be/<id> links.
 
 = 1.3 =
 * Fixed bugs to make work with 5.0+
