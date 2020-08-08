@@ -13,9 +13,9 @@
 			'icon_url'      => 'dashicons-sp-sermonpress',
 			'columns'		=> 1,
 			'tabs'			=> array(
-				'general' => 'General',
-				'archive' => 'Archive',
-				'single' => 'Single Sermons'
+				'general' => __('General', 'sermonpress'),
+				'archive' => __('Archive', 'sermonpress'),
+				'single' => __('Single Sermons', 'sermonpress')
 
 			),
 			'submenu_title' => __( 'General', 'sermonpress' ), // Note this
@@ -37,7 +37,7 @@
 				array(
 					'name' => __( 'Default Feature Picture', 'sermonpress' ),
 					'id'   => 'sermon_default_picture',
-					'desc' => 'The picture to be used if the sermon has no feature picture.',
+					'desc' => __('The picture to be used if the sermon has no feature picture.', 'sermonpress') ,
 					'type' => 'single_image'
 				)
 			),
@@ -51,20 +51,20 @@
 				array(
 					'name' => __( 'ESV Application Token', 'sermonpress' ),
 					'id'   => 'sermon_esv_token',
-					'desc' => 'You must obtain this token from https://api.esv.org/. For instructions <a target="_blank" href="https://www.sermonpress.io/help-center/bible-verse-lookup-setup/">click here</a>. (The bible verses option in the sermon editor is disabled until a valid application is provided)',
+					'desc' => __('You must obtain this token from https://api.esv.org/. For instructions <a target="_blank" href="https://www.sermonpress.io/help-center/bible-verse-lookup-setup/">click here</a>. (The bible verses option in the sermon editor is disabled until a valid application is provided)', 'serompress'),
 					'type' => 'text'
 				)
 			),
 		);
 
 		$show_filters_options = array(
-			'latest' => array('label' => 'Latest'),
-			'featured' => array('label' => 'Featured'),
-			'topic' => array('label' => 'Topic'),
-			'book' => array('label' => 'Book'),
-			'series' => array('label' => 'Series'),
-			'year' => array('label' => 'Year'),
-			'speaker' => array('label' => 'Speaker')
+			'latest' => array('label' => __('Latest', 'sermonpress')),
+			'featured' => array('label' => __('Featured', 'sermonpress')),
+			'topic' => array('label' => __('Topic', 'sermonpress')),
+			'book' => array('label' => __('Book', 'sermonpress')),
+			'series' => array('label' => __('Series', 'sermonpress')),
+			'year' => array('label' => __('Year', 'sermonpress')),
+			'speaker' => array('label' => __('Speaker', 'sermonpress'))
 		);
 		$show_filters_options = apply_filters('sermonpress_sermon_archive_filters_settings', $show_filters_options);
 
@@ -72,12 +72,12 @@
 
 		foreach($show_filters_options as $k => $v){
 			$tmp_fields[] = array(
-				'name' => __('Show ' . $v['label'] . '?', 'sermonpress'),
+				'name' => sprintf(__('Show %s?', 'sermonpress'), $v['label']),
 				'id' => 'show_filter_' . $k,
-				'desc' => 'Do you want to show the "' . $v['label'] . '" filter on the archive page?',
+				'desc' => sprintf(__('Do you want to show the "%s" filter on the archive page?'), $v['label']),
 				'type' => 'switch',
-				'on_label' => 'Yes',
-				'off_label' => 'No',
+				'on_label' => __('Yes', 'sermonpress'),
+				'off_label' => __('No', 'sermonpress'),
 				'std' => 1
 			);
 		}
@@ -95,14 +95,14 @@
 		$meta_boxes[] = array(
 			'id'			 => 'sermonpress-rewrite-slug',
 			'tab'			 => 'general',
-			'title'			 => 'Permalink Settings',
+			'title'			 => __('Permalink Settings', 'sermonpress'),
 			'settings_pages' => 'sermonpress-settings',
 			'fields'		 => array(
 				array(
-					'name' => 'Rewrite Slug',
+					'name' => __('Rewrite Slug', 'sermonpress'),
 					'id' => 'sermons_rewrite_slug',
 					'type' => 'text',
-					'desc' => 'The slug that is used for the sermons archive page. (IE example.com/<i>sermons</i>)',
+					'desc' => __('The slug that is used for the sermons archive page. (IE example.com/<i>sermons</i>)', 'sermonpress'),
 					'std' => 'sermons'
 				)
 			)

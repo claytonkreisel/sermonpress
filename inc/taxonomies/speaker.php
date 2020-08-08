@@ -45,20 +45,20 @@
 			$speaker_types = apply_filters('trsl_speaker_types', $speaker_types);
 			$meta_boxes[] = array(
 				'id' => 'speaker_info_box',
-				'title' => 'Speaker Box Info',
+				'title' => __('Speaker Box Info', 'sermonpress'),
 				'taxonomies' => 'speaker',
 				'fields' => array(
 					array(
 						'id' => 'speaker_pic',
-						'name' => 'Picture',
+						'name' => __('Picture', 'sermonpress'),
 						'type' => 'image_advanced',
-						'desc' => 'This picture will be used for the speakers profile picture.'
+						'desc' => __('This picture will be used for the speakers profile picture.', 'sermonpress')
 					),
 					array(
 						'id' => 'speaker_type',
-						'name' => 'Speaker Type',
+						'name' => __('Speaker Type', 'sermonpress'),
 						'type' => 'select_advanced',
-						'desc' => 'The type of speaker this person is.',
+						'desc' => __('The type of speaker this person is.', 'sermonpress'),
 						'options' => $speaker_types
 					)
 				)

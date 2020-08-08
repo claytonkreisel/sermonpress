@@ -28,7 +28,7 @@
 				$book = get_term_by('slug', $b, 'book');
 		?>
 			<div class="child-series"><a href="<?php echo $url_base . $book->slug; ?>"><?php echo $book->name; ?></a></div>
-			<div class="child-series-count"><?php echo $book->count; ?> Messages</div>
+			<div class="child-series-count"><?php echo $book->count; ?> <?php echo __('Messages', 'sermonpress'); ?></div>
 		<?php
 			endforeach;
 		?>
@@ -40,7 +40,7 @@
 				$book = get_term_by('slug', $b, 'book');
 		?>
 			<div class="child-series"><a href="<?php echo $url_base . $book->slug; ?>"><?php echo $book->name; ?></a></div>
-			<div class="child-series-count"><?php echo $book->count; ?> Messages</div>
+			<div class="child-series-count"><?php echo $book->count; ?> <?php __('Messages', 'sermonpress'); ?></div>
 		<?php
 			endforeach;
 		?>
@@ -53,7 +53,7 @@
 		$book = get_term_by('slug', $_GET['v'], 'book');
 		if($book):
 ?>
-	<h3><?php echo apply_filters('sermonpress_sermon_archive_template_library_books_single_book_title', __('Sermons from ' . $book->name), $book->name); ?></h3>
+	<h3><?php echo apply_filters('sermonpress_sermon_archive_template_library_books_single_book_title', sprintf(__('Sermons from %s', 'sermonpress'), $book->name), $book->name); ?></h3>
 <?php
 	if($book->description != ''):
 ?>

@@ -29,7 +29,7 @@
 		?>
 		<div class="col-xs-12 col-sm-6 col-md-4">
 			<div class="child-series"><a href="<?php echo $url_base . $speaker->slug; ?>"><?php echo $speaker->name; ?></a></div>
-			<div class="child-series-count"><?php echo $speaker->count; ?> Messages</div>
+			<div class="child-series-count"><?php echo $speaker->count; ?> <?php __('Messages', 'sermonpress'); ?></div>
 		</div>
 		<?php
 			endforeach;
@@ -42,7 +42,7 @@
 		$speaker = get_term_by('slug', $_GET['v'], 'speaker');
 		if($speaker):
 ?>
-	<h3><?php echo apply_filters('sermonpress_sermon_archive_template_library_speakers_single_speaker_title', __('Sermons by ' . $speaker->name), $speaker->name); ?></h3>
+	<h3><?php echo apply_filters('sermonpress_sermon_archive_template_library_speakers_single_speaker_title', sprintf(__('Sermons by %s', 'sermonpress'), $speaker->name), $speaker->name); ?></h3>
 <?php
 	if($speaker->description != ''):
 ?>

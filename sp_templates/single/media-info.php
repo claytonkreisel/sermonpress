@@ -46,7 +46,7 @@
 	$friday_focus = (get_post_meta(get_the_ID(), 'sermon_friday_focus', true) != '') ? get_post_meta(get_the_ID(), 'sermon_friday_focus', true) : false;
 	
 	//Sermon Date
-	$date = new DateTime(get_post_meta(get_the_ID(), 'sermon_date', true), new DateTimeZone('America/Chicago'));
+	$date = new DateTime(get_post_meta(get_the_ID(), 'sermon_date', true), wp_timezone());
 	
 	//Sermon Links
 	$links = get_post_meta(get_the_ID(), 'sermon_links_group', true);

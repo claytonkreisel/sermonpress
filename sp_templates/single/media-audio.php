@@ -24,7 +24,7 @@
 				</div>
 				<audio controls id="sermon-audio-player">
 					<source src="<?php echo $audio; ?>" type="audio/mpeg">
-					Your browser does not support the audio tag.
+					<?php echo __('Your browser does not support the audio tag.', 'sermonpress'); ?>
 				</audio>
 			</div>
 		</div>

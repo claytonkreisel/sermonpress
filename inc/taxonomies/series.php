@@ -40,14 +40,14 @@
 	function add_series_term_fields($meta_boxes){
 		$meta_boxes[] = array(
 			'id' => 'series_info_box',
-			'title' => 'Series Box Info',
+			'title' => __('Series Box Info', 'sermonpress'),
 			'taxonomies' => 'series',
 			'fields' => array(
 				array(
 					'id' => 'series_banner',
-					'name' => 'Image Banner',
+					'name' => __('Image Banner', 'sermonpress'),
 					'type' => 'image_advanced',
-					'desc' => 'The banner that will be associated with the series.'
+					'desc' => __('The banner that will be associated with the series.', 'sermonpress')
 				)
 			)
 		);

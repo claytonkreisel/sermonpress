@@ -3,20 +3,20 @@
 	//Register Post Type
 	function sermonpress_register_sermons(){
 		$labels = array(
-			'name'               => _x( 'Sermons', 'post type general name', 'faithfamily' ),
-			'singular_name'      => _x( 'Sermon', 'post type singular name', 'faithfamily' ),
-			'menu_name'          => _x( 'Sermons', 'admin menu', 'faithfamily' ),
-			'name_admin_bar'     => _x( 'Sermon', 'add new on admin bar', 'faithfamily' ),
-			'add_new'            => _x( 'Add New', 'sermon', 'faithfamily' ),
-			'add_new_item'       => __( 'Add New Sermon', 'faithfamily' ),
-			'new_item'           => __( 'New Sermon', 'faithfamily' ),
-			'edit_item'          => __( 'Edit Sermon', 'faithfamily' ),
-			'view_item'          => __( 'View Sermon', 'faithfamily' ),
-			'all_items'          => __( 'All Sermons', 'faithfamily' ),
-			'search_items'       => __( 'Search Sermons', 'faithfamily' ),
-			'parent_item_colon'  => __( 'Parent Sermons:', 'faithfamily' ),
-			'not_found'          => __( 'No sermons found.', 'faithfamily' ),
-			'not_found_in_trash' => __( 'No sermons found in Trash.', 'faithfamily' ),
+			'name'               => _x( 'Sermons', 'post type general name', 'sermonpress' ),
+			'singular_name'      => _x( 'Sermon', 'post type singular name', 'sermonpress' ),
+			'menu_name'          => _x( 'Sermons', 'admin menu', 'sermonpress' ),
+			'name_admin_bar'     => _x( 'Sermon', 'add new on admin bar', 'sermonpress' ),
+			'add_new'            => _x( 'Add New', 'sermon', 'sermonpress' ),
+			'add_new_item'       => __( 'Add New Sermon', 'sermonpress' ),
+			'new_item'           => __( 'New Sermon', 'sermonpress' ),
+			'edit_item'          => __( 'Edit Sermon', 'sermonpress' ),
+			'view_item'          => __( 'View Sermon', 'sermonpress' ),
+			'all_items'          => __( 'All Sermons', 'sermonpress' ),
+			'search_items'       => __( 'Search Sermons', 'sermonpress' ),
+			'parent_item_colon'  => __( 'Parent Sermons:', 'sermonpress' ),
+			'not_found'          => __( 'No sermons found.', 'sermonpress' ),
+			'not_found_in_trash' => __( 'No sermons found in Trash.', 'sermonpress' ),
 		);
 		$labels = apply_filters('sermonpress_sermon_labels', $labels);
 		$rewrite_slug = apply_filters('sermonpress_sermons_rewrite_slug', 'sermons');
@@ -53,15 +53,15 @@
 				'name' => 'Featured?',
 				'id' => $prefix.'featured',
 				'type' => 'select',
-				'options' => array('no' => 'No', 'yes' => 'Yes')
+				'options' => array('no' => __('No', 'sermonpress'), 'yes' => _('Yes', 'sermonpress'))
 			),
 			array(
-				'name' => 'Date Given',
+				'name' => __('Date Given', 'sermonpress'),
 				'id' => $prefix.'date',
 				'type' => 'datetime',
 			),
 			array(
-				'name' => 'Short Description',
+				'name' => __('Short Description', 'sermonpress'),
 				'id' => $prefix.'short_text',
 				'type' => 'textarea',
 			)
@@ -69,19 +69,19 @@
 		$app_token = get_sermonpress_setting('sermon_esv_token');
 		if($app_token != ''){
 			$sermon_info_fields[] = array(
-				'name' => 'Sermon Passages (ESV)',
+				'name' => __('Sermon Passages (ESV)', 'sermonpress'),
 				'id' => $prefix.'passages',
 				'type' => 'text',
 				'clone' => true,
 				'sort_clone' => true,
-				'desc' => 'Enter the scripture references of the passages you wish to show for this sermon on the sermon page in the ESV. The best practice is to use the books full name and the address as such: <br/>"1 Corinthians 13:1-4" or "1 Corinthians 13".'
+				'desc' => __('Enter the scripture references of the passages you wish to show for this sermon on the sermon page in the ESV. The best practice is to use the books full name and the address as such: <br/>"1 Corinthians 13:1-4" or "1 Corinthians 13".', 'sermonpress')
 			);
 		} else {
 			$sermon_info_fields[] = array(
-				'name' => 'Sermon Passages (ESV)',
+				'name' => __('Sermon Passages (ESV)', 'sermonpress'),
 				'id' => $prefix.'passages_no_show',
 				'type' => 'custom_html',
-				'std' => '<div class="post-field-alert"><p>In order to enable this feature you need to complete the setup <a href="'.sermonpress_get_settings_url('single').'">here</a>. SermonPress > Single > Bible Verse Lookup > ESV Application Token.</p><p>For more info you can look at the documentation <a target="_blank" href="https://www.sermonpress.io/help-center/bible-verse-lookup-setup/">here</a>.</div><p>'
+				'std' => '<div class="post-field-alert">' . sprintf( '<p>In order to enable this feature you need to complete the setup <a href="%s">here</a>. SermonPress > Single > Bible Verse Lookup > ESV Application Token.</p><p>For more info you can look at the documentation <a target="_blank" href="https://www.sermonpress.io/help-center/bible-verse-lookup-setup/">here</a>.</p>', sermonpress_get_settings_url('single')) . '</div>'
 			);
 		}
 		$sermon_info_fields = apply_filters('sermonpress_sermon_info_fields', $sermon_info_fields, $prefix);
@@ -89,7 +89,7 @@
 		//Sermons Info Box
 		$meta_boxes[] = array(
 			'id' => 'sermon_info',
-			'title' => 'Sermon Info',
+			'title' => __('Sermon Info', 'sermonpress'),
 			'pages' => array('sermon'),
 			'context' => 'normal',
 			'priorty' => 'high',
@@ -98,45 +98,45 @@
 
 		$sermon_media_fields = array(
 			array(
-				'name' => 'Image',
+				'name' => __('Image', 'sermonpress'),
 				'id' => $prefix.'image_heading',
 				'type' => 'heading',
 			),
 			array(
-				'name' => 'Sermon Image',
+				'name' => __('Sermon Image', 'sermonpress'),
 				'id' => $prefix.'image',
 				'type' => 'image_advanced',
 				'max_file_uploads' => 1,
 				'max_status' => false,
-				'desc' => 'Upload your sermon image file here. This will be displayed on the audio player.'
+				'desc' => __('Upload your sermon image file here. This will be displayed on the audio player.', 'sermonpress')
 			),
 			array(
-				'name' => 'Audio',
+				'name' => __('Audio', 'sermonpress'),
 				'id' => $prefix.'audio_heading',
 				'type' => 'heading',
 			),
 			array(
-				'name' => 'Sermon Audio',
+				'name' => __('Sermon Audio', 'sermonpress'),
 				'id' => $prefix.'audio',
 				'type' => 'file_input',
-				'desc' => 'Upload your sermon audio file here or enter in a URL link to its external location.'
+				'desc' => __('Upload your sermon audio file here or enter in a URL link to its external location.', 'sermonpress')
 			),
 			array(
-				'name' => 'Video',
+				'name' => __('Video', 'sermonpress'),
 				'id' => $prefix.'video_heading',
 				'type' => 'heading',
 			),
 			array(
-				'name' => 'Sermon Video URL',
+				'name' => __('Sermon Video URL', 'sermonpress'),
 				'id' => $prefix.'video',
 				'type' => 'url',
-				'desc' => 'Copy and paste the video url here for embedding.'
+				'desc' => __('Copy and paste the video url here for embedding.', 'sermonpress')
 			),
 			array(
-				'name' => 'Sermon Video Download',
+				'name' => __('Sermon Video Download', 'sermonpress'),
 				'id' => $prefix.'video_dl',
 				'type' => 'file_input',
-				'desc' => 'Upload your sermon video file here or enter in a URL link to its external location.'
+				'desc' => __('Upload your sermon video file here or enter in a URL link to its external location.', 'sermonpress')
 			),
 		);
 		$sermon_media_fields = apply_filters('sermonpress_sermon_media_fields', $sermon_media_fields, $prefix);
@@ -144,7 +144,7 @@
 		//Sermons Media Box
 		$meta_boxes[] = array(
 			'id' => 'sermon_media',
-			'title' => 'Sermon Media',
+			'title' => __('Sermon Media', 'sermonpress'),
 			'pages' => array('sermon'),
 			'context' => 'normal',
 			'priorty' => 'high',
@@ -153,42 +153,42 @@
 
 		$sermon_additional_fields = array(
 			array(
-				'name' => 'Other Files',
+				'name' => __('Other Files', 'sermonpress'),
 				'id' => $prefix.'files_heading',
 				'type' => 'heading',
 			),
 			array(
-				'name' => 'Sermon Attachments',
+				'name' => __('Sermon Attachments', 'sermonpress'),
 				'id' => $prefix.'attachments',
 				'type' => 'file_advanced',
-				'desc' => 'You can place sermon notes, powerpoints, reference documents, pictures, etc. here.'
+				'desc' => __('You can place sermon notes, powerpoints, reference documents, pictures, etc. here.', 'sermonpress')
 			),
 			array(
-				'name' => 'Online Links and Resources',
+				'name' => __('Online Links and Resources', 'sermonpress'),
 				'id' => $prefix.'links_heading',
 				'type' => 'heading',
 			),
 			array(
-				'name' => 'Sermon Online Resources',
+				'name' => __('Sermon Online Resources', 'sermonpress'),
 				'id' => $prefix.'links_group',
 				'type' => 'group',
 				'clone' => true,
 				'sort_clone' => true,
 				'fields' => array(
 					array(
-						'name' => 'Link URL',
+						'name' => __('Link URL', 'sermonpress'),
 						'id' => $prefix.'links_url',
 						'type' => 'url',
-						'desc' => 'Enter the URL including the http.'
+						'desc' => __('Enter the URL including the http.', 'sermonpress'),
 					),
 					array(
-						'name' => 'Link Text',
+						'name' => __('Link Text', 'sermonpress'),
 						'id' => $prefix.'links_text',
 						'type' => 'text',
-						'desc' => 'Enter the text you want to use for the URL above.'
+						'desc' => __('Enter the text you want to use for the URL above.', 'sermonpress')
 					)
 				),
-				'desc' => 'Copy and paste the urls of links here for embedding.'
+				'desc' => __('Copy and paste the urls of links here for embedding.', 'sermonpress')
 			),
 		);
 		$sermon_additional_fields = apply_filters('sermonpress_sermon_additional_resources_fields', $sermon_additional_fields, $prefix);
@@ -196,7 +196,7 @@
 		//Sermons Media Box
 		$meta_boxes[] = array(
 			'id' => 'sermon_media_additional',
-			'title' => 'Sermon Additional Resources',
+			'title' => __('Sermon Additional Resources', 'sermonpress'),
 			'pages' => array('sermon'),
 			'context' => 'normal',
 			'priorty' => 'high',
