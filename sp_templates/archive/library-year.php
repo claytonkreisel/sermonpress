@@ -42,7 +42,7 @@
 		?>
 		<div class="col-xs-12 col-sm-6 col-md-4">
 			<div class="child-series"><a href="<?php echo $url_base . $y; ?>"><?php echo $y; ?></a></div>
-			<div class="child-series-count"><?php echo count($post_query); ?> Messages</div>
+			<div class="child-series-count"><?php echo count($post_query); ?> <?php __('Messages', 'sermonpress'); ?></div>
 		</div>
 		<?php
 			endforeach;
@@ -55,7 +55,7 @@
 		$year = (isset($_GET['v'])) ? $_GET['v'] : false;
 		if($year):
 		?>
-			<h3><?php echo apply_filters('sermonpress_sermon_archive_template_library_year_single_year_title', __('Sermons from the year of ' . $year), $year); ?></h3>
+			<h3><?php echo apply_filters('sermonpress_sermon_archive_template_library_year_single_year_title', sprintf(__('Sermons from the year of %s', 'sermonpress'), $year), $year); ?></h3>
 			<div class="sermon-top-border"></div>
 		<?php
 		endif;	

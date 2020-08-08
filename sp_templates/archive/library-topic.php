@@ -36,13 +36,13 @@
 			}
 		?>
 		<div class="parent-series"><a href="<?php echo $url_base . $parent->slug; ?>"><?php echo $parent->name; ?></a></div>
-		<div class="parent-series-count"><?php echo $parent->count; ?> Messages</div>
+		<div class="parent-series-count"><?php echo $parent->count; ?> <?php __('Messages', 'sermonpress'); ?></div>
 		<?php
 			foreach($parent->children as $child):
 				$count++;
 		?>
 		<div class="child-series"><a href="<?php echo $url_base . $child->slug; ?>"><?php echo $child->name; ?></a></div>
-		<div class="child-series-count"><?php echo $child->count; ?> Messages</div>
+		<div class="child-series-count"><?php echo $child->count; ?> <?php __('Messages', 'sermonpress'); ?></div>
 		<?php
 			endforeach;
 		endforeach;

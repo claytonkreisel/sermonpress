@@ -63,7 +63,7 @@
 			if($pass_books == 'OK'){
 				return $term;
 			}
-			return WP_Error('78005A', 'Sorry but you can\'t add any books to the Bible');
+			return WP_Error('78005A', __('Sorry but you can\'t add any books to the Bible', 'sermonpress'));
 		}
 		return $term;
 	}
@@ -71,7 +71,7 @@
 	add_action('pre_delete_term', 'sermonpress_block_book_deletion', 1, 2);
 	function sermonpress_block_book_deletion( $term, $taxonomy ) {
 		if($taxonomy == 'book'){
-			return WP_Error('78005B', 'Sorry but you can\'t delete any books to the Bible');
+			return WP_Error('78005B', __('Sorry but you can\'t delete any books to the Bible', 'sermonpress'));
 		}
 	}
 ?>

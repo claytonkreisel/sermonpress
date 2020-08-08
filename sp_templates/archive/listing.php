@@ -48,7 +48,7 @@
 		$video = (get_post_meta(get_the_ID(), 'sermon_video', true) != '') ? true : false;
 		
 		//Sermon Date
-		$date = new DateTime(get_post_meta(get_the_ID(), 'sermon_date', true), new DateTimeZone('America/Chicago'));
+		$date = new DateTime(get_post_meta(get_the_ID(), 'sermon_date', true), wp_timezone());
 	?>
 	<div class="sermon-listing-header">
 		<a href="<?php the_permalink(); ?>" class="sermon-link"><h4><?php echo apply_filters('sermonpress_sermon_archive_listing_title', the_title()); ?></h4></a>
